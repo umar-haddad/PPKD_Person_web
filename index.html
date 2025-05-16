@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            /* * {
+                box-sizing: border-box; 
+                position: relative;
+                background-image: linear-gradient(to right, #4facfe, #00f2fe);
+            } */
+        body {
+            position: relative; 
+            margin: 0;
+            background-image: linear-gradient(to bottom right, #2c1b0b, #1a3e5c, #5e0f0f, #d4af37);
+            background-attachment: fixed;
+        }
+
+        
+
+        .hamburger {
+    display: none; 
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    background-color: aquamarine;
+    height: 3px;
+    margin: 4px 0;
+    width: 40px;
+    border-radius: 20%;
+    transition: all 0.3s ease;
+}
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 8px;
+        }
+
+.hamburger.active span:nth-child(2) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -8px;
+}
+
+.hamburger.active span:nth-child(3) {
+   opacity: 0;
+}
+.hamburger.active span:nth-child(4) {
+    opacity: 0;
+}
+.menu {
+    display: flex;
+    justify-content: flex-start;
+
+    padding: 10px;
+    margin: 10px 0 0 3%;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    padding: 10px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: aqua;
+}
+
+.menu ul li a:hover {
+    color: cornflowerblue;
+    background-color: antiquewhite;
+    border-radius: 20%;
+
+}
+        span {
+            display: flex  ;
+            background-color: black;
+            width: 90%;
+            height: 5px;
+            margin: 1% 5% 5% 5%;
+        }
+        .contentProfile {
+            display: flex;
+            flex-direction: column  ;
+            justify-content: center;
+            align-items: center ;
+        }
+        .contentView {
+            display: flex;
+            flex-direction: column  ;
+            justify-content: center;
+            align-items: center ;
+            margin: 0 20px;
+        }
+
+        .tableContent {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center ;
+            width: 50%;
+        }
+        .tableContent table {
+            margin: 0px 30px 30px 20px;
+            width: 50%;
+        }
+        .tableContent table th {
+            font-size: 20px;
+        }
+
+        footer {
+            display: inline;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0;
+            font: 30px;
+            color: aqua;
+        }
+        @media screen and (max-width: 768px) {
+            .menu {
+                display: none; 
+            }
+
+            .menu.active {
+                display: block; 
+            }
+
+            .hamburger {
+                display: flex;
+                margin: 20px;
+            }
+            .tableContent {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center ;
+            width: 110%;
+            }
+            .tableContent table {
+            margin: 0px 30px 10px 20px;
+            width: 90%;
+        }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="menu" id="navMenu">
+        <ul >
+            <li><a href="index.html">Home |</a></li>
+            <li><a href="./Resource/cvPdf.pdf" target="_blank" rel="noopener noreferrer">Download CV |</a></li>
+            <li><a href="contact.html">Contact |</a></li>
+            <li><a href="about.html">About me |</a></li>
+        </ul>
+        </div>
+        <span></span>
+    </nav>
+    <section class="contentProfile"> 
+        <img style="border-radius: 50%;" src="./Resource/luffy img.jpg" alt="profile" >
+        <h2 style="color: aqua; font-family: Verdana, Geneva, Tahoma, sans-serif;">Sayyid Umar Hasani</h2>
+        <h3 style="color: aqua; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">(Web Programming)</h3> 
+        
+    </section>
+    <span></span>
+    <section class="contentView">
+        <h2>OverView</h2>
+        <h3>Hi, saya adalah seorang web developer yang saat ini sedang belajar HTML & CSS</h3>
+        <div class="tableContent">
+            <table class="skills" border="2">
+                <thead>
+                    <tr>
+                        <th>Skills</th>  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>HTML (expert)</li>
+                                <li>CSS Beginner</li>
+                                <li>JavaScript(Beginner)</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+                <table class="experience" border="2">
+                <thead>
+                    <tr>
+                        <th>Pengalaman</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>Pernah Menjadi Mugiwara</li>
+                                <li>God Of Nika</li>
+                                <li>Buah Iblis Mytichal Zoan</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <span></span>
+    <footer>
+        <p> 2025 &copy;sayyid_umar</p>
+    </footer>
+
+    <script>
+    function toggleMenu() {
+        const navMenu = document.getElementById("navMenu");
+        const hamburger = document.getElementById("hamburger");
+
+        navMenu.classList.toggle("active");
+        hamburger.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

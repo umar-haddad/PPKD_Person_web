@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" />
+    <style>
+      body {
+        opacity: 1;
+        transition: opacity 0.5 ease-in-out;
+        margin: 0;
+        position: relative;
+      }
+      body.fade-out{
+        opacity: 0;
+      }
+      .navbar {
+        background-image: linear-gradient(
+          to bottom,
+          #546991,
+          #678686,
+          #5a8b94,
+          rgb(194, 213, 238)
+        );
+      }
+      header {
+        align-items: center;
+      }
+      div .nav {
+        font-size: 20px;
+      }
+
+      .btn {
+        padding: 10px;
+      }
+
+      .btn button {
+        background-attachment: fixed;
+        border-radius: 30%;
+        box-shadow: 20% black;
+        padding: 10px 5px;
+      }
+      .btn a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .marquee {
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 20px;
+        padding: 10px 0;
+        width: 100%;
+        height: 50px;
+      }
+
+      .marquee-text {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        animation: marquee 20s linear infinite;
+      }
+      @keyframes marquee {
+        0% {
+          left: 100%;
+        }
+        100% {
+          left: -100%;
+        }
+      }
+
+      .collapse {
+        &:not(.show) {
+          display: none;
+        }
+      }
+
+      .card {
+        background-image: linear-gradient(to bottom right, rgba(122, 72, 49, 0.829), rgba(88, 56, 56, 0.726), rgba(167, 32, 32, 0.753));
+      }
+      .collapsing {
+        height: 0;
+        overflow: hidden;
+        @include transition($transition-collapse);
+
+        &.collapse-horizontal {
+          width: 0;
+          height: auto;
+          @include transition($transition-collapse-width);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-3">
+      <div class="row align-items-center">
+        <div class="col-md-3 text-md-start">
+          <img src="./Resource/ppkdJp1.jpg" alt="" width="117" />
+        </div>
+        <div class="col-md-6 text-center">
+          <h1 class="">PPKD JAKARTA PUSAT</h1>
+          <p class="mb-0">
+            Jl. Karet Pasar Baru Barat, Karet Tengsin, Kecamatan Tanah Abang,
+            Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10250
+          </p>
+        </div>
+        <div class="col-md-3 text-md-end">
+          <img src="./Resource/logoDki1.png" alt="" width="117" />
+        </div>
+      </div>
+    </div>
+    <!--------- buat navbar ---------->
+    <div class="container">
+      <nav class="navbar navbar-expand-lg bg-info mt-3">
+        <div class="container-fluid ms-5" style="font-size: 15pt">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a
+                  class="nav-link active text-light"
+                  aria-current="page"
+                  href="index.html"
+                  >about us</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="d-flex gap-2 d-flex justify-content-end">
+            <button class="btn btn-success"><a href="./login.html">Login</a></button>
+            <span></span>
+            <button class="btn btn-success me-md-2">
+              <a href="./register.html">Register</a>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <div class="marquee">
+        <div class="marquee-text">
+          <p class="mb-1">Selamat datang di Web Programming PPKD JAKPUS</p>
+        </div>
+      </div>
+      <div class="card container-fluid p-2">
+        <div class="card-body">
+          <form action="">
+            <fieldset class="bg-b">
+              <legend style="color: #1e2018; font-size: 20px" class="pb-4">
+                <b>Register</b>
+              </legend>
+              <div class="mb-3">
+                <label for="FormControlInput2" class="form-label"
+                  >Email address : </label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="name@example.com" />
+              </div>
+              <div class="mb-3">
+                <label for="FormControlInput3" class="form-label"
+                  >password :</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="Password anda...." />
+              </div>
+              <a href="#" class="btn btn-primary">Register</a>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <footer class="d-flex justify-content-center pt-3 mt-2">
+        <p>2025&copy;sayyid_umar</p>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const collapseElementList = document.querySelectorAll(".collapse");
+      const collapseList = [...collapseElementList].map(
+        (collapseEl) => new bootstrap.Collapse(collapseEl)
+      );
+      const bsCollapse = new bootstrap.Collapse("#myCollapse", {
+        toggle: false,
+      });
+    </script>
+  </body>
+</html>
