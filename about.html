@@ -1,190 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<style>
-			body {
-				position: relative;
-				margin: 0;
-				background-image: linear-gradient(
-					to bottom right,
-					#2c1b0b,
-					#1a3e5c,
-					#5e0f0f,
-					#d4af37
-				);
-				background-attachment: fixed;
-			}
-			.hamburger {
-				display: none;
-				flex-direction: column;
-				cursor: pointer;
-			}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* <!-------- start biasa nya Copy Paste-------> */
+      body {
+        position: relative;
+        margin: 0;
+        background-image: linear-gradient(
+          to bottom right,
+          #2c1b0b,
+          #1a3e5c,
+          #5e0f0f,
+          #d4af37
+        );
+        background-attachment: fixed;
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
 
-			.hamburger span {
-				background-color: aquamarine;
-				height: 3px;
-				margin: 4px 0;
-				width: 40px;
-				border-radius: 20%;
-				transition: all 0.3s ease;
-			}
-			.hamburger.active span:nth-child(1) {
-				transform: rotate(45deg);
-				position: relative;
-				top: 8px;
-			}
+      .hamburger span {
+        background-color: aquamarine;
+        height: 3px;
+        margin: 4px 0;
+        width: 40px;
+        border-radius: 20%;
+        transition: all 0.3s ease;
+      }
 
-			.hamburger.active span:nth-child(2) {
-				transform: rotate(-45deg);
-				position: relative;
-				top: -8px;
-			}
+      .hamburger.active {
+        transition: 3s ease-in-out;
+        color: #5e0f0f;
+      }
 
-			.hamburger.active span:nth-child(3) {
-				opacity: 0;
-			}
-			.hamburger.active span:nth-child(4) {
-				opacity: 0;
-			}
-			.menu {
-				display: flex;
-				justify-content: flex-start;
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+        position: relative;
+        top: 8px;
+      }
 
-				padding: 10px;
-				margin: 10px 0 0 3%;
-			}
+      .hamburger.active span:nth-child(2) {
+        transform: rotate(-45deg);
+        position: relative;
+        top: -8px;
+      }
 
-			.menu ul {
-				list-style: none;
-				display: flex;
-				margin: 0;
-				padding: 0;
-			}
+      .hamburger.active span:nth-child(3) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(4) {
+        opacity: 0;
+      }
+      .menu {
+        display: flex;
+        justify-content: flex-start;
 
-			.menu ul li {
-				padding: 10px;
-			}
+        padding: 10px;
+        margin: 10px 0 0 3%;
+      }
 
-			.menu ul li a {
-				text-decoration: none;
-				color: aqua;
-			}
+      .menu ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
 
-			.menu ul li a:hover {
-				color: cornflowerblue;
-				background-color: antiquewhite;
-				border-radius: 20%;
-			}
-			span {
-				display: flex;
-				background-color: black;
-				width: 90%;
-				height: 5px;
-				margin: 1% 5% 5% 5%;
-			}
-			footer {
-				display: inline;
-				justify-content: center;
-				align-items: center;
-				text-align: center;
-				padding: 0;
-				font: 30px;
-				color: aqua;
-			}
+      .menu ul li {
+        padding: 10px;
+      }
 
-            h1, p {
-                color: turquoise;
-                font-family: cursive;
-            }
-            p {
-                font-size: 20px; 
-               
-            }
+      .menu ul li a {
+        text-decoration: none;
+        color: aqua;
+        box-shadow: 2px 10px 20px #1a3e5c;
+        transition: box-shadow 0.3s ease;
+      }
 
-            section {
-                padding: 20px;
-                margin: 0 5% ;
-                justify-content: space-between;
-                align-items: center;
-            }
+      .menu ul li a:hover {
+        color: rgb(64, 77, 102);
+        box-shadow: 2px 10px 20px #1671bb;
+        transition: box-shadow 0.3s ease;
+      }
+      span {
+        display: flex;
+        background-color: black;
+        width: 90%;
+        height: 5px;
+        margin: 1% 5% 5% 5%;
+      }
+      footer {
+        display: inline;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+        font: 30px;
+        color: aqua;
+      }
 
-            section .videoPlayer video{
-                width: 30%;
-                height: auto;
-				display: flex;
-				margin: 2% 30%;
-                border-radius: 20%;
-            }
+      /* <----- end CopyPaste -----> */
 
-			@media screen and (max-width: 768px) {
-				.menu {
-					display: none;
-				}
+      h1,
+      p {
+        color: turquoise;
+        font-family: cursive;
+      }
+      p {
+        font-size: 20px;
+      }
 
-				.menu.active {
-					display: block;
-				}
+      section {
+        padding: 20px;
+        margin: 0 5%;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-				.hamburger {
-					display: flex;
-					margin: 20px;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<nav>
-			<div class="hamburger" id="hamburger" onclick="toggleMenu()">
-				<span></span>
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-			<div class="menu" id="navMenu">
-				<ul>
-					<li><a href="index.html">Home |</a></li>
-					<li><a href="./Resource/cvPdf.pdf" target="_blank" rel="noopener noreferrer">Download CV |</a></li>
-					<li><a href="contact.html">Contact |</a></li>
-					<li><a href="about.html">About me |</a></li>
-				</ul>
-			</div>
-			<span></span>
-		</nav>
-		<section>
-			<div class="teks">
-				<h1>About Me</h1>
-				<p>
-					hi, saya adalah web developer yang saat ini sedang belajar html di
-					petani Kode
-				</p>
-				<p>
-					saya memang masih baru dalam web development. karena itu, saya tidak
-					akan pernah berhenti di jalan
-				</p>
-				<p>
-					saya ingin menguasai bahasa HTML ,CSS dan Javascript. simak Video
-					lengkap tentang saya :
-				</p>
-			</div>
-			<div class="videoPlayer">
-				<video src="./Resource/video.mp4" autoplay></video>
-			</div>
-		</section>
-		<span></span>
-		<footer>
-			<p>2025 &copy;sayyid_umar</p>
-		</footer>
-		<script>
-			function toggleMenu() {
-				const navMenu = document.getElementById("navMenu");
-				const hamburger = document.getElementById("hamburger");
+      section .videoPlayer video {
+        width: 30%;
+        height: auto;
+        display: flex;
+        margin: 2% 30%;
+        border-radius: 20%;
+      }
 
-				navMenu.classList.toggle("active");
-				hamburger.classList.toggle("active");
-			}
-		</script>
-	</body>
+      @media screen and (max-width: 768px) {
+        .menu {
+          display: none;
+        }
+
+        .menu.active {
+          display: block;
+        }
+
+        .hamburger {
+          display: flex;
+          margin: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="menu" id="navMenu">
+        <ul>
+          <li><a href="index.html">Home |</a></li>
+          <li>
+            <a
+              href="./Resource/cvPdf.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Download CV |</a
+            >
+          </li>
+          <li><a href="contact.html">Contact |</a></li>
+          <li><a href="about.html">About me |</a></li>
+        </ul>
+      </div>
+      <span></span>
+    </nav>
+    <section>
+      <div class="teks">
+        <h1>About Me</h1>
+        <p>
+          hi, saya adalah web developer yang saat ini sedang belajar html di
+          petani Kode
+        </p>
+        <p>
+          saya memang masih baru dalam web development. karena itu, saya tidak
+          akan pernah berhenti di jalan
+        </p>
+        <p>
+          saya ingin menguasai bahasa HTML ,CSS dan Javascript. simak Video
+          lengkap tentang saya :
+        </p>
+      </div>
+      <div class="videoPlayer">
+        <video src="./Resource/video.mp4" autoplay></video>
+      </div>
+    </section>
+    <span></span>
+    <footer>
+      <p>2025 &copy;sayyid_umar</p>
+    </footer>
+    <script>
+      function toggleMenu() {
+        const navMenu = document.getElementById("navMenu");
+        const hamburger = document.getElementById("hamburger");
+
+        navMenu.classList.toggle("active");
+        hamburger.classList.toggle("active");
+      }
+    </script>
+  </body>
 </html>

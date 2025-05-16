@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List CRUD</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" />
+    <style>
+      .edit-mode input {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container my-4">
+      <h2 class="text-center mb-4">To Do List</h2>
+
+      <div class="mb-3 d-flex">
+        <input type="text" id="todoInput" class="form-control me-2" placeholder="Add new task..." />
+        <button onclick="addTodo()" class="btn btn-success">Add</button>
+      </div>
+
+      <table class="table table-bordered">
+        <thead class="table-light">
+          <tr>
+            <th>No</th>
+            <th>Task</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="todoTableBody"></tbody>
+      </table>
+    </div>
+
+    <script>
+      let todos = [];
+      let editIndex = null;
+
+      function renderTodos() {
+        const tbody = document.getElementById("todoTableBody");
+        tbody.innerHTML = "";
+
+        todos.forEach((todo, index) => {
+          const tr = document.createElement("tr");
+
+          tr.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${todo}</td>
+            <td>
+              <button class="btn btn-warning btn-sm me-1" onclick="editTodo(${index})">Edit</button>
+              <button class="btn btn-danger btn-sm" onclick="deleteTodo(${index})">Delete</button>
+            </td>
+          `;
+
+          tbody.appendChild(tr);
+        });
+      }
+
+      function addTodo() {
+        const input = document.getElementById("todoInput");
+        const value = input.value.trim();
+
+        if (value === "") {
+          alert("Please enter a task!");
+          return;
+        }
+
+        if (editIndex !== null) {
+          todos[editIndex] = value;
+          editIndex = null;
+        } else {
+          todos.push(value);
+        }
+
+        input.value = "";
+        renderTodos();
+      }
+
+      function editTodo(index) {
+        const input = document.getElementById("todoInput");
+        input.value = todos[index];
+        editIndex = index;
+      }
+
+      function deleteTodo(index) {
+        todos.splice(index, 1);
+        renderTodos();
+      }
+
+      renderTodos();
+    </script>
+  </body>
+</html>

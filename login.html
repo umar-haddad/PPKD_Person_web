@@ -14,7 +14,7 @@
         margin: 0;
         position: relative;
       }
-      body.fade-out{
+      body.fade-out {
         opacity: 0;
       }
       .navbar {
@@ -81,7 +81,12 @@
       }
 
       .card {
-        background-image: linear-gradient(to bottom right, rgba(122, 72, 49, 0.829), rgba(88, 56, 56, 0.726), rgba(167, 32, 32, 0.753));
+        background-image: linear-gradient(
+          to bottom right,
+          rgba(122, 72, 49, 0.829),
+          rgba(88, 56, 56, 0.726),
+          rgba(167, 32, 32, 0.753)
+        );
       }
       .collapsing {
         height: 0;
@@ -94,22 +99,34 @@
           @include transition($transition-collapse-width);
         }
       }
+
+      @media screen and (max-width: 480px) {
+        img {
+          width: 80px;
+        }
+        h1 {
+          font-size: 20px;
+        }
+        .header {
+          font-size: 12px;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="container mt-3">
       <div class="row align-items-center">
-        <div class="col-md-3 text-md-start">
+        <div class="col-3 text-start">
           <img src="./Resource/ppkdJp1.jpg" alt="" width="117" />
         </div>
-        <div class="col-md-6 text-center">
-          <h1 class="">PPKD JAKARTA PUSAT</h1>
-          <p class="mb-0">
+        <div class="col-6 text-center">
+          <h1>PPKD JAKARTA PUSAT</h1>
+          <p class="header mb-0">
             Jl. Karet Pasar Baru Barat, Karet Tengsin, Kecamatan Tanah Abang,
             Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10250
           </p>
         </div>
-        <div class="col-md-3 text-md-end">
+        <div class="col-3 text-md-end">
           <img src="./Resource/logoDki1.png" alt="" width="117" />
         </div>
       </div>
@@ -144,7 +161,9 @@
             </ul>
           </div>
           <div class="d-flex gap-2 d-flex justify-content-end">
-            <button class="btn btn-success"><a href="./login.html">Login</a></button>
+            <button class="btn btn-success">
+              <a href="./login.html">Login</a>
+            </button>
             <span></span>
             <button class="btn btn-success me-md-2">
               <a href="./register.html">Register</a>
@@ -166,8 +185,8 @@
               </legend>
               <div class="mb-3">
                 <label for="FormControlInput2" class="form-label"
-                  >Email address : </label
-                >
+                  >Email address :
+                </label>
                 <input
                   type="email"
                   class="form-control"

@@ -5,82 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-            /* * {
-                box-sizing: border-box; 
-                position: relative;
-                background-image: linear-gradient(to right, #4facfe, #00f2fe);
-            } */
-        body {
-            position: relative; 
-            margin: 0;
-            background-image: linear-gradient(to bottom right, #2c1b0b, #1a3e5c, #5e0f0f, #d4af37);
-            background-attachment: fixed;
-        }
+  /* <!-------- start biasa nya Copy Paste-------> */
+  body {
+        position: relative;
+        margin: 0;
+        background-image: linear-gradient(
+          to bottom right,
+          #2c1b0b,
+          #1a3e5c,
+          #5e0f0f,
+          #d4af37
+        );
+        background-attachment: fixed;
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
 
-        
+      .hamburger span {
+        background-color: aquamarine;
+        height: 3px;
+        margin: 4px 0;
+        width: 40px;
+        border-radius: 20%;
+        transition: all 0.3s ease;
+      }
 
-        .hamburger {
-    display: none; 
-    flex-direction: column;
-    cursor: pointer;
-}
+      .hamburger.active {
+        transition: 3s ease-in-out;
+        color: #5e0f0f;
+      }
 
-.hamburger span {
-    background-color: aquamarine;
-    height: 3px;
-    margin: 4px 0;
-    width: 40px;
-    border-radius: 20%;
-    transition: all 0.3s ease;
-}
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg);
-    position: relative;
-    top: 8px;
-        }
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+        position: relative;
+        top: 8px;
+      }
 
-.hamburger.active span:nth-child(2) {
-    transform: rotate(-45deg);
-    position: relative;
-    top: -8px;
-}
+      .hamburger.active span:nth-child(2) {
+        transform: rotate(-45deg);
+        position: relative;
+        top: -8px;
+      }
 
-.hamburger.active span:nth-child(3) {
-   opacity: 0;
-}
-.hamburger.active span:nth-child(4) {
-    opacity: 0;
-}
-.menu {
-    display: flex;
-    justify-content: flex-start;
+      .hamburger.active span:nth-child(3) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(4) {
+        opacity: 0;
+      }
+      .menu {
+        display: flex;
+        justify-content: flex-start;
 
-    padding: 10px;
-    margin: 10px 0 0 3%;
-}
+        padding: 10px;
+        margin: 10px 0 0 3%;
+      }
 
-.menu ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
+      .menu ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
 
-.menu ul li {
-    padding: 10px;
-}
+      .menu ul li {
+        padding: 10px;
+      }
 
-.menu ul li a {
-    text-decoration: none;
-    color: aqua;
-}
+      .menu ul li a {
+        text-decoration: none;
+        color: aqua;
+        box-shadow: 2px 10px 20px #1a3e5c;
+        transition: box-shadow 0.3s ease;
+      }
 
-.menu ul li a:hover {
-    color: cornflowerblue;
-    background-color: antiquewhite;
-    border-radius: 20%;
+      .menu ul li a:hover {
+        color: rgb(64, 77, 102);
+        box-shadow: 2px 10px 20px #1671bb;
+        transition: box-shadow 0.3s ease;
+       
+      }
+      span {
+        display: flex;
+        background-color: black;
+        width: 90%;
+        height: 5px;
+        margin: 1% 5% 5% 5%;
+      }
 
-}
+      /* <----- end CopyPaste -----> */
         span {
             display: flex  ;
             background-color: black;
